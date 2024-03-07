@@ -4,6 +4,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.util.EmptyStackException;
+
 /**
  * Unit test for simple App.
  */
@@ -35,4 +37,31 @@ public class AppTest
     {
         assertTrue( true );
     }
+
+    public class MyStackTest {
+
+        public void testPush() {
+            MyStack<Integer> stack = new MyStack<>();
+            stack.push(1);
+            assertEquals(Integer.valueOf(1), stack.pop());
+            assertTrue(stack.isEmpty());
+        }
+
+        public void testPushMultiple() {
+            MyStack<Integer> stack = new MyStack<>();
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+            assertEquals(Integer.valueOf(3), stack.pop());
+            assertEquals(Integer.valueOf(2), stack.pop());
+            assertEquals(Integer.valueOf(1), stack.pop());
+            assertTrue(stack.isEmpty());
+        }
+
+        public void testPopEmptyStack() {
+            MyStack<Integer> stack = new MyStack<>();
+            stack.pop();
+        }
+    }
+
 }
