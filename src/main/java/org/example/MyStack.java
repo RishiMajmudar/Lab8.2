@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
@@ -7,17 +6,17 @@ public class MyStack<E> {
     private ArrayList<E> delegate;
 
     public MyStack() {
-        this.delegate = new ArrayList<>();
+        delegate = new ArrayList<>();
     }
 
     public void push(E e) {
-        delegate.add(e); // Replaced with delegate.add(e)
+        delegate.add(e);
     }
 
     public E pop() {
         if (isEmpty()) throw new EmptyStackException();
-        E e = delegate.get(delegate.size() - 1); // Replaced with delegate.get(...)
-        delegate.remove(delegate.size() - 1); // Replaced with delegate.remove(...)
+        E e = delegate.get(delegate.size() - 1);
+        delegate.remove(delegate.size() - 1);
         return e;
     }
 
@@ -33,4 +32,3 @@ public class MyStack<E> {
         return delegate.get(index);
     }
 }
-
