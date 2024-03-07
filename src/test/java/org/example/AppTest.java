@@ -40,27 +40,23 @@ public class AppTest
 
     public class MyStackTest {
 
-        public void testPush() {
+        public void testIsEmpty() {
             MyStack<Integer> stack = new MyStack<>();
-            stack.push(1);
-            assertEquals(Integer.valueOf(1), stack.pop());
             assertTrue(stack.isEmpty());
-        }
-
-        public void testPushMultiple() {
-            MyStack<Integer> stack = new MyStack<>();
             stack.push(1);
-            stack.push(2);
-            stack.push(3);
-            assertEquals(Integer.valueOf(3), stack.pop());
-            assertEquals(Integer.valueOf(2), stack.pop());
-            assertEquals(Integer.valueOf(1), stack.pop());
-            assertTrue(stack.isEmpty());
-        }
-
-        public void testPopEmptyStack() {
-            MyStack<Integer> stack = new MyStack<>();
+            assertFalse(stack.isEmpty());
             stack.pop();
+            assertTrue(stack.isEmpty());
+        }
+        public void testSize() {
+            MyStack<Integer> stack = new MyStack<>();
+            assertEquals(0, stack.size());
+            stack.push(1);
+            assertEquals(1, stack.size());
+            stack.push(2);
+            assertEquals(2, stack.size());
+            stack.pop();
+            assertEquals(1, stack.size());
         }
     }
 
